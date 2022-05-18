@@ -413,6 +413,26 @@
             </li>
           </ul>
         </div>
+
+        <form name="footter-mail">
+          <p class="join-title">Подпишитесь на рассылку</p>
+
+          <div class="footter-group" role="group">
+            <label for="user_email"></label>
+            <input
+              class="footter-mail"
+              type="email"
+              name="email"
+              id="user_email"
+              placeholder="E-mail"
+            />
+            <button class="button-hero footter-button" type="submit">
+              Подписаться<svg class="footer-icon" width="24" height="24">
+                <use href="./images/icons.svg#icon-footter-send"></use>
+              </svg>
+            </button>
+          </div>
+        </form>
       </div>
     </footer>
 
@@ -423,9 +443,56 @@
             <use href="./images/icons.svg#icon-vector"></use>
           </svg>
         </button>
+
+        <form name="modal" class="form js-speaker-form">
+          <h2 class="modal-title">Оставьте свои данные, мы вам перезвоним</h2>
+
+          <div role="group" class="form-field">
+            <label for="user_name" class="form-text">Имя</label>
+            <input type="text" name="user_name" id="user_name" />
+          </div>
+
+          <div role="group" class="form-field">
+            <label for="tel" class="form-text">Телефон</label>
+            <input type="tel" name="tel" id="tel" />
+          </div>
+
+          <div role="group" class="form-field">
+            <label for="email" class="form-text">Почта</label>
+            <input type="email" name="email" id="email" />
+          </div>
+
+          <div role="group" class="form-field form-comment">
+            <label for="comment" class="form-text">Комментарий</label>
+            <textarea name="comment" rows="" placeholder="Введите текст"></textarea>
+          </div>
+
+          <div role="group" class="form-checkbox">
+            <input type="checkbox" name="license" value="license" id="license" />
+            <spun
+              >Соглашаюсь с рассылкой и принимаю<a href="" target="_blank" class="conditions"
+                >Условия договора</a
+              ></spun
+            >
+            <label for="license" class="form-license"></label>
+          </div>
+
+          <button type="submit" class="button-hero button-send">Отправить</button>
+        </form>
       </div>
     </div>
 
     <script src="./js/modal.js"></script>
+    <script>
+      (() => {
+        document.querySelector('.js-speaker-form').addEventListener('submit', e => {
+          e.preventDefault();
+
+          new FormData(e.currentTarget).forEach((value, name) => console.log(`${name}: ${value}`));
+
+          e.currentTarget.reset();
+        });
+      })();
+    </script>
   </body>
 </html>
